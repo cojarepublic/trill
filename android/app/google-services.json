@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "934203420935",
+    "firebase_url": "https://trill-d623d.firebaseio.com",
+    "project_id": "trill-d623d",
+    "storage_bucket": "trill-d623d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934203420935:android:b3fba714a10164863055a2",
+        "android_client_info": {
+          "package_name": "com.example.trill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934203420935-e7k6s3ccane0ji1nsvjqbcfsg6lv401j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn6SmDv7VblDZhXB9OypQh2FALFMDq8Uk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934203420935-e7k6s3ccane0ji1nsvjqbcfsg6lv401j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
