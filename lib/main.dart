@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trill/screens/chat_screen.dart';
 
+import 'screens/auth_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: ChatScreen(),
+      home: AuthScreen(),
     );
   }
 }
