@@ -10,32 +10,34 @@ class Messages extends StatelessWidget {
         future: FirebaseAuth.instance.currentUser(),
         builder: (ctx, futureSnapshot) {
           if (futureSnapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator(),);
-          }
-        return StreamBuilder(
-        stream: Firestore.instance
-            .collection('chat')
-            .orderBy('createdAt', descending: true)
-            .snapshots(),
-        builder: (ctx, chatSnapshot) {
-          if (chatSnapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(),
             );
           }
-          final chatDocs = chatSnapshot.data.documents;
-          return ListView.builder(
-                reverse: true,
-                itemCount: chatDocs.length,
-                itemBuilder: (ctx, index) =>
-                    MessageBubble(
-                      chatDocs[index]['text'],
-                      chatDocs[index]['username'],
-                      chatDocs[index]['userId'] == futureSnapshot.data.uid,
-                      key: ValueKey(chatDocs[index].documentID),
-                    ),
-              );
-            });
+          return StreamBuilder(
+              stream: Firestore.instance
+                  .collection('users')
+                  .orderBy('createdAt', descending: true)
+                  .snapshots(),
+              builder: (ctx, chatSnapshot) {
+                if (chatSnapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                final chatDocs = chatSnapshot.data.documents;
+                return ListView.builder(
+                  reverse: true,
+                  itemCount: chatDocs.length,
+                  itemBuilder: (ctx, index) => MessageBubble(
+                    chatDocs[index]['text'],
+                    chatDocs[index]['userName'],
+                    chatDocs[index]['userImage'],
+                    chatDocs[index]['userId'] == futureSnapshot.data.uid,
+                    key: ValueKey(chatDocs[index].documentID),
+                  ),
+                );
+              });
         });
   }
 }
