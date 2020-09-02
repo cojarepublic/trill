@@ -12,6 +12,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
+    super.initState();
     final fbm = FirebaseMessaging();
     fbm.requestNotificationPermissions();
     fbm.configure(onMessage: (msg) {
@@ -25,7 +26,7 @@ class _ChatScreenState extends State<ChatScreen> {
       return;
     }
     );
-    super.initState();
+
   }
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +35,7 @@ class _ChatScreenState extends State<ChatScreen> {
         centerTitle: true,
         actions: [
           DropdownButton(
+            underline: Container(),
             icon: Icon(
               Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color,
